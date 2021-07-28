@@ -1,33 +1,43 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Primeiro
+namespace FormulaBaskara
 {
     class Program
     {
         static void Main(string[] args)
         {
 
-            string produto1 = "Computador";
-            string produto2 = "Mesa de Escritório";
+            double a;
+            double b;
+            double c;
+            
+            Console.WriteLine("Digite o valor de A:");
+            a = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("Digite o valor de B:");
+            b = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("Digite o valor de C");
+            c = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            byte idade = 30;
-            int codigo = 5290;
-            char genero = 'M';
+            double delta = Math.Pow(b, 2) - 4.0 * a * c; // Math.Pow(b, 2) se usa o "math.pow para calcular potencia;
 
-            double preco1 = 2100.0;
-            double preco2 = 650.00;
-            double preco3 = 53.234567;
+            double x1 = (-b + Math.Sqrt(delta)) / (2.0 * a);
+            double x2 = (-b - Math.Sqrt(delta)) / (2.0 * a);
 
-            Console.WriteLine("Produtos: ");
-            Console.WriteLine($"{produto1}, cujo preço é R${preco1.ToString("F2")}.");
-            Console.WriteLine($"{produto2}, cujo preço é R${preco2.ToString("F2", CultureInfo.InvariantCulture)}.");
+
+            Console.Write($"O valor de A é {a.ToString("F2")}. ");
+            Console.Write($"O valor de B é {b.ToString("F2")}. ");
+            Console.Write($"O valor de C é {c.ToString("F2")}.");
+
             Console.WriteLine();
-            Console.WriteLine($"Registro: {idade} anos de idade, código {codigo} e gênero: {genero}.");
-            Console.WriteLine();
-            Console.WriteLine($"Medida com oito casas decimais: {preco3}.");
-            Console.WriteLine($"Arredondado (três casas decimais): {preco3.ToString("F3")}.");
-            Console.WriteLine($"Separador decimal invariant culture: {preco3.ToString("F3", CultureInfo.InvariantCulture)}.");
+
+            Console.WriteLine($"O valor do Delta é {delta}.");
+            Console.WriteLine($"O valor da primeira raiz é {x1}.");
+            Console.WriteLine($"O valor da segunda raiz é {x2}.");
+
+
+
+
 
         }
     }
